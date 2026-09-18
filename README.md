@@ -6,27 +6,54 @@ To perform and verify DFT using direct method by SCILAB.
 PC installed with SCILAB
 ## PROGRAM 
 ### DFT DIRECT METHOD
-<br>
-<br>
-<br>
-<br>
-<br>
+```
+clc;
+clear;
+xn=[1 2 3 4 4 3 2 1];
+n1=0:1:length(xn)-1;
+subplot(3,1,1);
+plot2d3(n1,xn);
+xlabel('Time n');
+ylabel('Amplitude xn');
+title('Input Sequence');
+j=sqrt(-1);
+N=length(xn);
+Xk=zeros(1,N);
+for k=0:N-1
+for n=0:N-1
+Xk(k+1)=Xk(k+1)+xn(n+1)*exp((-j*2*%pi*k*n)/N);
+end
+end
+disp(Xk)
+K1=0:1:length(Xk)-1;
+magnitude=abs(Xk)
+subplot(3,1,2);
+plot2d3(K1,magnitude);
+xlabel('frequency(Hz)');
+ylabel('magnitude(gain)');
+title('magnitude spectrum');
+angle = atan(imag(Xk),real(Xk))
+subplot(3,1,3);
+plot2d3(K1,angle);
+xlabel('frequency(Hz)');
+ylabel('Phase');
+title('Phase spectrum')
+```
 
-<br>
 ### CALCULATIONS:
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<img width="1280" height="1252" alt="image" src="https://github.com/user-attachments/assets/50f003bb-d194-4469-a872-b4018a84f556" />
+
+<img width="619" height="1102" alt="image" src="https://github.com/user-attachments/assets/8f08c4a3-10c2-46d6-ba69-e950af832e05" />
+
+<img width="1152" height="362" alt="image" src="https://github.com/user-attachments/assets/4587457f-979b-47fd-8b48-2f537cc373c1" />
+
 ### SAMPLE OUTPUT:
-<br>
-<br>
-<br>
-<br>
+
+<img width="1920" height="1020" alt="Screenshot 2026-07-28 080852" src="https://github.com/user-attachments/assets/0bacd7a3-734e-4e24-be8d-e0a8d88da8b6" />
+
 
 
 
 ## RESULT:
 Thus,  DFT using direct method for two given sequences were performed and its result was verified.
-
